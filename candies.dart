@@ -1,3 +1,5 @@
+import 'dart:io';
+
 int candies(List<int> arr, int n) {
   List<int> candiesCount = List<int>.filled(n, 1);
 
@@ -19,8 +21,15 @@ int candies(List<int> arr, int n) {
 }
 
 void main() {
-  List<int> ratings = [1, 2, 2];
-  int n = ratings.length;
+  List<int> ratings = [];
+  print("Enter students length : ");
+  int? n = int.parse(stdin.readLineSync()!);
+  print("Enter students rating : ");
+
+  for (int i = 0; i < n; i++) {
+    int? ratingStudents = int.parse(stdin.readLineSync()!);
+    ratings.add(ratingStudents);
+  }
   int result = candies(ratings, n);
   print(result);
 }
